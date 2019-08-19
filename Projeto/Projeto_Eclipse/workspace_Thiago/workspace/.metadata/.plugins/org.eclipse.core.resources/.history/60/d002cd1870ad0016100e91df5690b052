@@ -1,0 +1,31 @@
+import java.io.*;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class ConsumoEletrico {
+
+		//Algoritmo "Calcula Consumo"
+	    //Disciplina:    [Programação de Aplicativos]
+	    //Descrição:     Calcular o consumo elétrico
+	    //Autor(a):      Thiago Soares da Cruz
+	    //Matrícula:     20111100428
+	    //Data atual:     19/11/2016
+
+
+	public static void main(String[] args) {
+
+        //Variaveis globais usadas no escopo do software*/
+        int qtd, i, conces;
+        String conces_str;
+        double potencia, tempo, Eel, custo, tensao, valconces, amperes;
+
+        Scanner sc = new Scanner(System.in);
+
+        potencia = 0;
+        tempo = 0;
+		
+		//Procedimento Global de entrada de dados pelo usuario
+
+        	
+	}
+

@@ -1,0 +1,162 @@
+import java.util.Scanner;
+
+public class ConsumoEletrico {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//Variaveis globais usadas no escopo do software
+
+		int qtd, i, valor_concesionaria, tensao, conces;
+		double tempo,potencia, Eel, custo, valconces;
+
+		Scanner sc = new Scanner(System.in);
+		
+		//Procedimento Global de entrada de dados pelo usuario
+
+		void double Entrada_dados(double tempo, double potencia, int tensao, int conces){
+		   
+			System.out.println("===========================================================");
+			System.out.println("                Dimencionamento de Carga Elétrica");
+			System.out.println("===========================================================");
+	
+		   potencia = 0;
+		   tempo =0;
+
+		   System.out.println("Informe a quantidade de aparelhos");
+		   qat = sc.nextLine();
+		   i=1;
+		   for i 1 to qtd do
+		        escreval("Informe o valor da potência do aparelho - watts")
+		        leia(potencia)
+		        potencia <-potencia+potencia
+		        escreval("Informe o tempo de uso do aparelho - minutos")
+		        leia(tempo)
+		        tempo <-tempo+tempo
+		        i=i+1
+		   fimpara
+
+		   escreval ("Informe a concessionária de energia elétrica - (L-A)")
+		   leia (conces)
+
+		   escolha_concessionaria(conces)
+		   escreval ("Concessioária escolhida: " + conces)
+		   escreval ("")
+		   escreval ("Informe a tensão da sua área - 110 ou 220 Volts")
+		   leia(tensao)
+		   
+		   }
+		   
+		   procedimento escolha_concessionaria(var conces: caractere)
+
+		   inicio
+
+		        se (conces = "L") entao
+		             conces <-"Ligth"
+		        senao
+		             conces <-"Ampla"
+		        fimse
+
+		   fimprocedimento
+
+
+		   //Procedimento que verifica qual é a concessionária elétrica
+		   //Atribui o valor de gasto para cada concessionária.
+
+		   procedimento calc_concessionaria(var conces: caractere; var Eel,custo,valconces: real)
+
+		   inicio
+
+		        se (conces = "L") entao
+		             //conces <-"Ligth"
+		             valconces <-0.30
+		             custo <-Eel*valconces*30
+		        senao
+		             //conces <-"Ampla"
+		             valconces <-0.50
+		             custo <-Eel*valconces*30
+		        fimse
+
+		   fimprocedimento
+		   
+		   //Procedimento que utiliza a lei de Ohm i=p/U
+		   //para fazer o cálculo de corrente total
+		   //onde i=corrente nominal do circuito
+		   //potência é a soma das potências do circuito
+		   //tensao é a soma da tensão nominal da rede;
+
+		   procedimento calc_disjuntor(var i,potencia: real; tensao: inteiro)
+		   
+		   inicio
+		   
+		         i<-potencia/tensao:2
+
+		   fimprocedimento
+
+		   //Procedimento que calcula os dados usados
+		   //faz a convesao do tempo de minutos para horas
+		   //faz a conversão da potência em watts para kwatts
+		   
+		   procedimento calculo_dados(var tempo, potencia,Eel,custo,valconces: real;var valor_concesionaria,i,tensao: inteiro;var conces: caractere)
+
+		   inicio
+
+		   tempo <-tempo/60
+		   potencia <-(potencia)*(10^-3)
+
+		   Eel <-potencia*tempo
+
+		   calc_concessionaria(conces, Eel, custo, valconces)
+		   calc_disjuntor(potencia,i,tensao)
+
+		   fimprocedimento
+
+		   //Procedimento Global de saída de dados para o usuario
+		   
+		   procedimento saida_dados(var tempo,potencia,Eel,custo,valconces: real; var valor_concesionaria,i,tensao: inteiro;var conces: caractere)
+
+		   inicio
+
+		   escreval(" ")
+		   escreval(" ")
+		   escreval("======================= RESULTADO =======================")
+		   escreval("Potência em Kwats:")
+		   escreval(potencia)
+		   escreval("Para a concessionária:")
+		   escreval(conces)
+		   escreval("O valor do custo mensal:")
+		   escreval("R$: " + numpcarac(custo))
+		   escreval("O consumo mensal: ")
+		   escreval(numpcarac(custo) + "Kw/h")
+		   escreval("O calculo de corrente da rede: ")
+		   escreval(numpcarac(i) + " Amperes")
+		   escreval("Utilize um disjuntor com valor superior ao de tensão da rede")
+		   escreval("no mínimo de :")
+		   escreval(numpcarac(i+1) + " Amperes")
+		   escreval("=========================================================")
+
+		   fimprocedimento
+		   
+		inicio
+		// Seção de Chamadas aos procedimentos especialistas
+		//Procedimento de entrada_dados faz a impressao de dados para o usuario
+		//e leitura dos dados diitados;
+
+		//Calculo de dados, faz o calculo dos dados de acordo com os dados
+		//imputados pelo usuario e faz chamadas aos procedimentos especialistas de
+		//calc_concessionaria este faz o calculo de consumo para a concessionaria
+		//calc_disjuntor faz o calculo de tensao nominal para usar um disjuntor superior
+
+
+		Entrada_dados(tempo,potencia,tensao,conces)
+		calculo_dados(tempo,potencia,Eel,custo,valconces, valor_concesionaria,i, tensao,conces)
+		saida_dados(tempo,potencia,Eel,custo,valconces, valor_concesionaria,i, tensao,conces)
+
+		fimalgoritmo
+
+		
+	}
+}

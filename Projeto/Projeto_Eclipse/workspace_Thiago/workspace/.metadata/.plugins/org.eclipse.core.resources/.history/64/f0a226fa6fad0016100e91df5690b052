@@ -1,0 +1,171 @@
+import java.io.*;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class ConsumoEletrico {
+
+
+		/**Algoritmo "Calcula Consumo"
+	     Disciplina:    [Programação de Aplicativos]
+	     Descrição:     Calcular o consumo elétrico
+	     Autor(a):      Thiago Soares da Cruz
+	     Matrícula:     20111100428
+	     Data atual:     19/11/2016
+
+	    */
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//Variaveis globais usadas no escopo do software
+
+		int qtd, i, valor_concesionaria, tensao, conces;
+		double tempo,potencia, Eel, custo, valconces;
+
+		Scanner sc = new Scanner(System.in);
+		
+		//Procedimento Global de entrada de dados pelo usuario
+
+		void double Entrada_dados(double tempo, double potencia, int tensao, int conces){
+		   
+			System.out.println("===========================================================");
+			System.out.println("                Dimencionamento de Carga Elétrica");
+			System.out.println("===========================================================");
+				
+			potencia=0;
+			tempo=0;
+			
+			System.out.println("Informe a quantidade de aparelhos");
+			qtd=sc.nextLine();
+			i=1;
+
+			for i:=1 to qtd {
+				System.out.println("Informe o valor da potência do aparelho - watts");
+				sc.nextLine(potencia);
+				potencia = potencia+potencia;
+				System.out.println("Informe o tempo de uso do aparelho - minutos");
+				sc.nextLine(tempo);
+				tempo = tempo+tempo;
+				i=i+1;
+			}
+
+			System.out.println ("Informe a concessionária de energia elétrica - (L-A)");
+			sc.nextLine(conces);
+
+			//escolha_concessionaria(conces);
+			//System.out.println ("Concessioária escolhida: " + conces);
+			System.out.println ("");
+			System.out.println ("Informe a tensão da sua área - 110 ou 220 Volts");
+			sc.nextLine(tensao);
+   
+		   }
+		   
+		   void escolha_concessionaria(int conces)
+
+		   {
+
+		        if (conces == 1) {
+		             conces = "Ligth";
+	            } else {
+		            	 conces = "Ampla";
+		             }
+		        
+		   }
+
+
+		   //Procedimento que verifica qual é a concessionária elétrica
+		   //Atribui o valor de gasto para cada concessionária.
+
+		   void calc_concessionaria(int conces,double Eel, double custo, double valconces)
+
+		   {
+
+		       if (conces == 1){
+		             //conces ="Ligth"
+		             valconces =0.30;
+		             custo = (Eel*valconces*30);
+		       } else {
+		             //conces ="Ampla"
+		             valconces =0.50;
+		             custo =Eel*valconces*30;
+	            }
+		        
+
+		   }
+		   
+		   //Procedimento que utiliza a lei de Ohm i=p/U
+		   //para fazer o cálculo de corrente total
+		   //onde i=corrente nominal do circuito
+		   //potência é a soma das potências do circuito
+		   //tensao é a soma da tensão nominal da rede;
+
+		   void calc_disjuntor(double i, double potencia, int tensao)
+		   
+		   {
+		   
+		         i= potencia/tensao;
+
+		   }
+
+		   //Procedimento que calcula os dados usados
+		   //faz a convesao do tempo de minutos para horas
+		   //faz a conversão da potência em watts para kwatts
+		   
+		   void calculo_dados(double tempo, double potencia, double Eel, double custo, double valconces, int valor_concesionaria, int i, int tensao, int conces)
+		   {
+
+			   tempo =tempo/60;
+			   potencia =(potencia)*(10^-3);
+	
+			   Eel =potencia*tempo;
+	
+			   calc_concessionaria(conces, Eel, custo, valconces);
+			   calc_disjuntor(potencia,i,tensao);
+
+		   }
+
+		   //Procedimento Global de saída de dados para o usuario
+		   
+		 void saida_dados(double vartempo,double potencia,double Eel, double custo,double valconces, int valor_concesionaria, int i, int tensao, int conces) 
+		 
+		 {
+		   System.out.println(" ");
+		   System.out.println(" ");
+		   System.out.println("======================= RESULTADO =======================");
+		   System.out.println("Potência em Kwats:");
+		   System.out.println(potencia);
+		   System.out.println("Para a concessionária:");
+		   System.out.println(conces);
+		   System.out.println("O valor do custo mensal:");
+		   System.out.println("R$: " + custo);
+		   System.out.println("O consumo mensal: ");
+		   System.out.println(custo + "Kw/h");
+		   System.out.println("O calculo de corrente da rede: ");
+		   System.out.println(i + " Amperes");
+		   System.out.println("Utilize um disjuntor com valor superior ao de tensão da rede");
+		   System.out.println("no mínimo de :");
+		   System.out.println(i+1 + " Amperes");
+		   System.out.println("=========================================================");
+
+	   }
+		   
+//		{
+		// Seção de Chamadas aos procedimentos especialistas
+		//Procedimento de entrada_dados faz a impressao de dados para o usuario
+		//e leitura dos dados diitados;
+
+		//Calculo de dados, faz o calculo dos dados de acordo com os dados
+		//imputados pelo usuario e faz chamadas aos procedimentos especialistas de
+		//calc_concessionaria este faz o calculo de consumo para a concessionaria
+		//calc_disjuntor faz o calculo de tensao nominal para usar um disjuntor superior
+
+
+//		Entrada_dados(tempo,potencia,tensao,conces)
+//		calculo_dados(tempo,potencia,Eel,custo,valconces, valor_concesionaria,i, tensao,conces)
+//		saida_dados(tempo,potencia,Eel,custo,valconces, valor_concesionaria,i, tensao,conces)
+
+//		}
+
+		
+	}
+

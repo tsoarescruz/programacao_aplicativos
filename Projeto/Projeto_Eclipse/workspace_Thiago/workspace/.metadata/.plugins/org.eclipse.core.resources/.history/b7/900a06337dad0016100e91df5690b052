@@ -1,0 +1,30 @@
+package com.example.consumoelet;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class ConsumoEletActivity extends Activity {
+
+	RadioButton ;
+	RadioButton ;
+	EditText ;
+	EditText edttensao;
+	EditText edttempuso;
+	EditText edtpotencia;
+	
+	EditText  edtquantpotencia;
+	EditText  edtquantcusto;
+	EditText  edtquantdisjuntor;
+	EditText  edtquantcorrente;
+	
+	Button buttoncalcular;
+;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_consumo_elet);
+	}
+}

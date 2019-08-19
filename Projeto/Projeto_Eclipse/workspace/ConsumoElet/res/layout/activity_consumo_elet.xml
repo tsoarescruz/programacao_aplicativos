@@ -1,0 +1,218 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Consumo Elétrico" />
+
+    <TextView
+        android:id="@+id/textViewtempuso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewPotencia"
+        android:layout_below="@+id/textViewPotencia"
+        android:layout_marginTop="14dp"
+        android:text="Tempo de uso (min)" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewquantdisjuntor"
+        android:layout_below="@+id/textViewinformeconces"
+        android:layout_marginTop="24dp" >
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewquantpotencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioGroup1"
+        android:layout_below="@+id/buttoncalcular"
+        android:layout_marginTop="17dp"
+        android:text="Potência Kwats" />
+
+    <TextView
+        android:id="@+id/textViewquantcusto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewquantpotencia"
+        android:layout_below="@+id/textViewquantpotencia"
+        android:layout_marginTop="14dp"
+        android:text="Custo Mensal" />
+
+    <TextView
+        android:id="@+id/textViewPotencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="24dp"
+        android:layout_toLeftOf="@+id/textView1"
+        android:text="Potência" />
+
+    <TextView
+        android:id="@+id/textViewtensao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewtempuso"
+        android:layout_below="@+id/textViewtempuso"
+        android:layout_marginTop="14dp"
+        android:text="Tensão" />
+
+    <EditText
+        android:id="@+id/edtquantpotencia"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewquantpotencia"
+        android:layout_alignBottom="@+id/textViewquantpotencia"
+        android:layout_alignLeft="@+id/edtpotencia"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/edtquantcusto"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtquantpotencia"
+        android:layout_below="@+id/edtquantpotencia"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/buttoncalcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioampla"
+        android:layout_toRightOf="@+id/radioligth"
+        android:text="Calcular" />
+
+    <EditText
+        android:id="@+id/edtpotencia"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewPotencia"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edttempuso"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewtempuso"
+        android:layout_alignLeft="@+id/edtpotencia"
+        android:layout_alignRight="@+id/edtpotencia"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edttensao"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewtensao"
+        android:layout_alignLeft="@+id/edttempuso"
+        android:layout_alignRight="@+id/edtquantcorrente"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/TextViewquantconsumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewquantcusto"
+        android:layout_below="@+id/edtquantcusto"
+        android:layout_marginTop="18dp"
+        android:text="Consumo Mensal" />
+
+    <EditText
+        android:id="@+id/edtquantconsumo"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtquantcusto"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextViewqauntcorrente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textViewPotencia"
+        android:layout_below="@+id/TextViewquantconsumo"
+        android:layout_marginTop="15dp"
+        android:text="Corrente" />
+
+    <EditText
+        android:id="@+id/edtquantcorrente"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewquantdisjuntor"
+        android:layout_alignLeft="@+id/edtquantconsumo"
+        android:ems="10"
+        android:inputType="number" />
+
+    <RadioButton
+        android:id="@+id/radioligth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewtensao"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/textViewtensao"
+        android:checked="false"
+        android:text="Ligth" />
+
+    <RadioButton
+        android:id="@+id/radioampla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioligth"
+        android:layout_alignBottom="@+id/radioligth"
+        android:layout_alignLeft="@+id/edttensao"
+        android:text="Ampla" />
+
+    <TextView
+        android:id="@+id/textViewquantdisjuntor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextViewqauntcorrente"
+        android:layout_below="@+id/TextViewqauntcorrente"
+        android:layout_marginTop="23dp"
+        android:text="Disjuntor" />
+
+    <TextView
+        android:id="@+id/textViewinformeconces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edttensao"
+        android:layout_toRightOf="@+id/textViewquantdisjuntor"
+        android:text="Informe a concessionária" />
+
+    <EditText
+        android:id="@+id/edtquantdisjuntor"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewquantdisjuntor"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="number" />
+
+</RelativeLayout>
